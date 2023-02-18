@@ -2,10 +2,13 @@ Presentation slides for the [neutronics-workshop](https://github.com/fusion-ener
 
 # View the sides.
 
-The slides are automatically published html format and available here [here](https://fusion-energy.github.io/neutronics-workshop-slides/1).
-Every time the main branch of the repository is updated the slides are automatically created and uploaded to the html to the GitHub pages website
+The slides are automatically published html format and available [here](https://fusion-energy.github.io/neutronics-workshop-slides/1).
+
+Every time the main branch of the repository is updated the slides are automatically rebuilt and uploaded as html to the GitHub pages website
 
 # Develop the slides
+
+To contribute or edit these slides you will need a few packages installing.
 
 ## Install slidev
 
@@ -15,10 +18,10 @@ The slides are built using [sli.dev](https://sli.dev/) which can be installed wi
 npm i -g @slidev/cli
 ```
 
-clone the repo
+clone the repository
 git clone https://github.com/fusion-energy/neutronics-workshop-slides.git
 
-navigate to the root folder of the repo
+navigate to the root folder of the repository
 
 ```bash
 cd neutronics-workshop-slides
@@ -53,18 +56,6 @@ This should produce a PDF file called ```slides.pdf``` in the root folder of the
 
 ## Exporting the slides to HTML
 
-This is automatically run by Github actions with push to main however you can also build the PDF or HTML files manually.
-
-Install playwright (which is needed to compile the markdown)
-```bash
-npm i -g playwright-chromium
-```
-
-Run the export command from the root folder of the repository.
-
-```bash
-slidev export slides.md
-```
-
-This should produce a PDF file called ```slides-export.pdf``` in the root folder of the repository.
+A HTML file is automatically built by Github actions whenever a push to main is made, however you can also build the HTML files manually.
+Carry out the same steps as the [GitHub action](https://github.com/fusion-energy/neutronics-workshop-slides/blob/main/.github/workflows/deploy.yml) to build local HTML files
 
