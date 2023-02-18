@@ -1,5 +1,8 @@
 name: Deploy pages
-on: push
+on:
+  push:
+    branches:
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,7 +16,7 @@ jobs:
       - name: Install slidev
         run:  npm i -g @slidev/cli
       - name: Build
-        run: slidev build --base <name_of_repo>
+        run: slidev build --base neutronics-workshop-slides
       - name: Deploy pages
         uses: crazy-max/ghaction-github-pages@v3
         with:
