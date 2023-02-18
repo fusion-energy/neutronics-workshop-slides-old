@@ -2,7 +2,8 @@ Presentation slides for the [neutronics-workshop](https://github.com/fusion-ener
 
 # View the sides.
 
-The slides are available in html and pdf format. With each release these two formats are automatically created and uploaded as an artifact to the release. Check out the latest slide release [here]().
+The slides are automatically published html format and available here [here](https://fusion-energy.github.io/neutronics-workshop-slides/1).
+Every time the main branch of the repository is updated the slides are automatically created and uploaded to the html to the GitHub pages website
 
 # Develop the slides
 
@@ -35,7 +36,24 @@ Make changes to the slides.md file and the slides will update in your browser
 
 ## Exporting the slides to PDF
 
-This is automatically run by Github actions with each release however you can also build the PDF or HTML files manually.
+You can also build the PDF files manually if required.
+
+Install playwright (which is needed to compile the markdown)
+```bash
+npm i -g playwright-chromium
+```
+
+Run the export command from the root folder of the repository.
+
+```bash
+slidev export slides.md --output slides.pdf
+```
+
+This should produce a PDF file called ```slides.pdf``` in the root folder of the repository.
+
+## Exporting the slides to HTML
+
+This is automatically run by Github actions with push to main however you can also build the PDF or HTML files manually.
 
 Install playwright (which is needed to compile the markdown)
 ```bash
