@@ -16,9 +16,7 @@ jobs:
       - name: Install slidev
         run:  npm i -g @slidev/cli
       - name: Build
-        run: |
-          npm install @slidev/theme-default
-          slidev build --base neutronics-workshop-slides
+        run: slidev build --base neutronics-workshop-slides
       - name: Deploy pages
         uses: crazy-max/ghaction-github-pages@v3
         with:
