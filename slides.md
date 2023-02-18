@@ -1,3 +1,7 @@
+---
+theme: default
+---
+
 # Slide 1
 
 Content of slide 1
