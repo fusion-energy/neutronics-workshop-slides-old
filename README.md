@@ -19,7 +19,9 @@ npm i -g @slidev/cli
 ```
 
 clone the repository
+```bash
 git clone https://github.com/fusion-energy/neutronics-workshop-slides.git
+```
 
 navigate to the root folder of the repository
 
