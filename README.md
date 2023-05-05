@@ -14,8 +14,8 @@ To contribute or edit these slides you will need a few packages installing.
 
 Node is required to install slidev
 ```bash
-sudo apt update
-sudo apt install nodejs
+sudo apt -y update
+sudo apt -y install nodejs
 ```
 
 ## Install slidev
@@ -23,6 +23,7 @@ sudo apt install nodejs
 The slides are built using [sli.dev](https://sli.dev/) which can be installed with a npm command.
 
 ```bash
+sudo apt install npm
 npm i -g @slidev/cli
 ```
 
