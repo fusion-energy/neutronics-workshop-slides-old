@@ -10,12 +10,13 @@ Every time the main branch of the repository is updated the slides are automatic
 
 To contribute or edit these slides you will need a few packages installing.
 
-## Install Node.js
+## Install dependencies
 
 Node is required to install slidev
 ```bash
 sudo apt -y update
 sudo apt -y install nodejs
+sudo apt -y install npm
 ```
 
 ## Install slidev
@@ -23,7 +24,6 @@ sudo apt -y install nodejs
 The slides are built using [sli.dev](https://sli.dev/) which can be installed with a npm command.
 
 ```bash
-sudo apt install npm
 npm i -g @slidev/cli
 ```
 
