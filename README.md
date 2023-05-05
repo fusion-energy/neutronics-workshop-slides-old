@@ -12,11 +12,14 @@ To contribute or edit these slides you will need a few packages installing.
 
 ## Install dependencies
 
-Node is required to install slidev
+Node.js>=v14.0 and npm are required to install slidev. [There are different](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04) ways
+of installing Node.js. These the instructions I use when installing on Ubuntu
+22.04 
 ```bash
 sudo apt -y update
-sudo apt -y install nodejs
 sudo apt -y install npm
+sudo apt -y install curl
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 ```
 
 ## Install slidev
@@ -44,7 +47,7 @@ slidev
 ```
 
 Navigate to your local host to see the slides
-[http://localhost:3031](http://localhost:3031)
+[http://localhost:3030](http://localhost:3030)
 
 Make changes to the slides.md file and the slides will update in your browser
 
