@@ -18,9 +18,7 @@ of installing Node.js. These are the instructions I use when installing on Ubunt
 ```bash
 sudo apt -y update
 sudo apt -y install npm
-sudo apt -y install curl
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
+nvm install 16.15.1
 ```
 
 ## Install slidev
