@@ -20,6 +20,7 @@ sudo apt -y update
 sudo apt -y install npm
 sudo apt -y install curl
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```
 
 ## Install slidev
