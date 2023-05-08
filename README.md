@@ -13,7 +13,7 @@ To contribute or edit these slides you will need a few packages installing.
 ## Install dependencies
 
 Node.js>=v14.0 and npm are required to install slidev. [There are different](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04) ways
-of installing Node.js. These the instructions I use when installing on Ubuntu
+of installing Node.js. These are the instructions I use when installing on Ubuntu
 22.04 
 ```bash
 sudo apt -y update
