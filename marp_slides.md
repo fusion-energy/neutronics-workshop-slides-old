@@ -1,7 +1,7 @@
 ---
 marp: true
 theme: gaia
-theme: uncover
+# theme: uncover
 _class: lead
 paginate: true
 backgroundColor: #fff
@@ -15,7 +15,9 @@ title: Neutronics Workshop
     --color-highlight: #f96;
     --color-dimmed: #888;
   }
-
+  {
+    font-size: 29px
+  }
   /* h1 {
     font-family: Courier New;
   } */
@@ -35,15 +37,10 @@ Jonathan Shimwell
 
 
 - **Radioactivity** - Neutrons activate material, making it radioactive leading to handling and waste storage requirements.​
-
 - **Hazardous** - Neutrons are Hazardous to health and shielded will be needed to protect the workforce.​
-
 - ***Produce fuel*** - Neutrons will be needed to convert lithium into tritium to fuel the reactor.​
-
 - ***Electricity*** - 80% of the energy release by each DT reaction is transferred to the neutron.​
-
 - ***Structural integrity*** - Neutrons cause damage to materials such as embrittlement, swelling, change conductivity …​
-
 - ***Diagnose*** - Neutrons are an important method of measuring a variety of plasma parameters (e.g. Q value).​
 
 ---
