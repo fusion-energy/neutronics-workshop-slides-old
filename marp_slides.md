@@ -1,29 +1,35 @@
 ---
 marp: true
 theme: gaia
+theme: uncover
 _class: lead
 paginate: true
 backgroundColor: #fff
+title: Neutronics Workshop
 ---
 
 <style>
   :root {
-    --color-background: #101010;
-    --color-forground: #FFFFFF;
+    --color-background: #fff;
+    --color-foreground: #333;
+    --color-highlight: #f96;
+    --color-dimmed: #888;
   }
 
-  h1 {
+  /* h1 {
     font-family: Courier New;
-  }
+  } */
 </style>
 
-# Fusion Energy 
-# Neutronics Workshop
+
+# Fusion Neutronics Workshop
 
 
 Jonathan Shimwell
 
+
 ---
+
 
 # Why is neutronics useful
 
@@ -42,7 +48,7 @@ Jonathan Shimwell
 
 ---
 
-# Topics Covered
+# Topics Covered Half Day Course
 
 - Neutron and Photon interaction cross sections
 
@@ -50,15 +56,11 @@ Jonathan Shimwell
 
 - Particle sources
 
-- CAD and CSG geometry
+- Constructive Solid Geometry (CSG)
 
-- Heat deposition, tritium breeding ration, dose, neutron flux spectra and damage tallies
+- Tallies (heat, tritium breeding ratio, damage, flux)
 
-- Varience reduction
-
-- Parameter studies
-
-- Stochastic volume calculation
+- Neutron activation
 
 ---
 
@@ -78,7 +80,9 @@ Detailed instructions are on [GitHub](https://github.com/fusion-energy/neutronic
 
 ---
 
-# Why containerisation
+![bg right:40% 100%](https://marp.app/assets/marp.svg)
+
+# Why containers
 
 
 
