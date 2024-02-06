@@ -10,16 +10,14 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '20'
       - name: Install dependencies
         run: npm install
       - name: Install slidev
-        run:  npm i -g @slidev/cli
+        run:  npm install -g @marp-team/marp-cli
       - name: Build
-        run: slidev build --base neutronics-workshop-slides
+        run: marp slides.md -o index.html
       - name: Deploy pages
         uses: crazy-max/ghaction-github-pages@v3
-        with:
-          build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
