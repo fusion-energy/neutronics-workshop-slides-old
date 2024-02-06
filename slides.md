@@ -186,7 +186,7 @@ Install single package (Docker) and avoid installing a few hundred packages.
   - task_13_example_photon_spectra
 - 12.15 mesh tallies                    15
   - task_14_example_2d_regular_mesh_tallies
-- 12.30 mesh tallies                    15
+- 12.30 activation                      15
   - task_15_full_pulse_schedule
 - 12.45 Putting it all together         15
   - task_16_optimal_design
@@ -234,3 +234,142 @@ The reaction rate ($RR$) can be found by knowing the number of neutrons per unit
 
 
 $$ RR = \frac{nv\rho N_{a}\sigma_{e} }{M} = \phi N_{d} \sigma_{e} = \phi \Sigma_{e} $$
+
+<!-- TODO add dopplar broadening -->
+
+---
+
+# Task 4, 5
+
+# Making materials
+
+Neutronics codes require the isotopes and the number density.
+
+This can be provided with different combinations of density units, isotope/element concentration and weight or atom fractions.
+
+![bg right:48% 100%](images/nuc_chart.png)
+
+---
+# Making materials - nuclides
+
+Simple material construction from nuclides.
+
+```python
+mat2 = openmc.Material()
+mat2.add_nuclide('Li6', 0.0759*2)
+mat2.add_nuclide('Li7', 0.9241*2)
+mat2.add_nuclide('O16', 0.9976206)
+mat2.add_nuclide('O17', 0.000379)
+mat2.add_nuclide('O18', 0.0020004)
+mat2.set_density('g/cm3', 2.01)
+```
+---
+# Making materials - elements
+
+Simpler material construction from elements.
+
+```python
+import openmc
+
+mat1 = openmc.Material()
+mat1.add_element('Li', 2)
+mat1.add_element('O', 1)
+mat1.set_density('g/cm3', 2.01)
+```
+---
+
+# Making materials - enrichment
+
+Simple enriched material construction from elements.
+
+```python
+import openmc
+
+mat1 = openmc.Material()
+mat1.add_element('Li', 2, enrichment_target='Li6', enrichment=60)
+mat1.add_element('O', 1)
+mat1.set_density('g/cm3', 2.01)
+```
+---
+
+# Making Geometry
+
+![bg right:30% 100%](images/csg1.png)
+
+The simplest geometry is a single surface and a cell defined as below (-) that surface.
+
+```python
+import openmc
+
+surface_sphere = openmc.Sphere(r=10.0)
+region_inside_sphere = -surface_sphere
+cell_sphere = openmc.Cell(region=region_inside_sphere) 
+
+cell_sphere.fill = steel
+```
+---
+
+# Making Geometry
+
+![bg right:30% 100%](images/csg1.png)
+
+Cells can also be constrained by multiple surfaces. This example is above (+) one surface and (&) below (-) another
+
+```python
+import openmc
+
+surf_sphere1 = openmc.Sphere(r=10.0)
+surf_sphere2 = openmc.Sphere(r=20.0)
+between_spheres = +surf_sphere1 & -surf_sphere2
+cell_between = openmc.Cell(region= between_spheres) 
+
+cell_sphere.fill = steel
+```
+---
+
+
+# Edge of the model
+
+![bg right:30% 100%](images/csg1.png)
+
+The outer most surface of the model should have a ```boundary_type``` set to ```"vacuum"``` to indicate that neutrons should not be tracked beyond this surface.
+```python
+import openmc 
+
+surf_sphere = openmc.Sphere(r=10.0, boundary_type="vacuum")
+between_spheres = -surf_sphere
+cell_between = openmc.Cell(region= between_spheres) 
+```
+---
+
+# Plotting particles
+
+---
+
+# Tritium Breeding Ratio
+
+---
+
+# Damage tallies
+
+---
+
+# Neutron spectra
+
+---
+
+# Photon spectra
+
+---
+
+# Mesh tallies
+
+---
+
+# Activation
+
+---
+
+# Summary task
+
+---
