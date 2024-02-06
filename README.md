@@ -6,6 +6,10 @@ The slides are automatically published html format and available [here](https://
 
 Every time the main branch of the repository is updated the slides are automatically rebuilt and uploaded as html to the GitHub pages website
 
-# Build the slides locally
+# Build the slides yourself
 
-The slides are written in an extended MarkDown format. [Marp](https://marp.app/) is needed to build the slides locally and is available as a [command line interface](https://github.com/marp-team/marp-cli) or a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode).
+The slides are written in an extended MarkDown format. [Marp](https://marp.app/) is needed to convert the Markdown file into pdf or html files and is available in the following forms:
+- [command line interface](https://github.com/marp-team/marp-cli)
+- [VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
+- [docker image](https://hub.docker.com/r/marpteam/marp-cli/)
+- [online webapp](https://demo.marpeditor.com/)
