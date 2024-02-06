@@ -33,8 +33,7 @@ keywords: fusion,neutronics,neutron,photon,radiation,simulation,openmc,dagmc
 
 # Fusion Neutronics Workshop
 
-Rosie Barker
-Jonathan Shimwell
+
 
 
 ---
