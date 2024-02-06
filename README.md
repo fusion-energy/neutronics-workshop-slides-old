@@ -2,7 +2,7 @@ Presentation slides for the [neutronics-workshop](https://github.com/fusion-ener
 
 # View the sides
 
-The slides are automatically published html format and available [here](https://fusion-energy.github.io/index.html).
+The slides are automatically published html format and available [here](https://fusion-energy.github.io/neutronics-workshop-slides/index.html).
 
 Every time the main branch of the repository is updated the slides are automatically rebuilt and uploaded as html to the GitHub pages website
 
