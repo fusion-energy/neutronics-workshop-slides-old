@@ -14,6 +14,9 @@ style: |
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
+  },
+  h1 {
+    text-align: center
   }
 ---
 
@@ -31,15 +34,17 @@ style: |
     white-space : pre-wrap !important;
     word-break: break-word;
   }
-  .columns
-  {
-      /* font-family:    Arial, Helvetica, sans-serif; */
-      font-size:      20px;
-      /* font-weight:    bold; */
+  .columns {
+    display: grid;
+    /* grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem; */
   }
-  /* h1 {
-    font-family: Courier New;
-  } */
+  h1 {
+    justify-content: center;
+  }
+  section {
+    justify-content: start;
+  }
 </style>
 
 
@@ -92,6 +97,7 @@ style: |
 
 Detailed instructions are on [GitHub](https://github.com/fusion-energy/neutronics-workshop/tree/main#local-installation)
 
+
 ---
 
 # Containers
@@ -110,7 +116,7 @@ Install single package (Docker) and avoid installing a few hundred packages.
 
 # Tasks
 
-![bg right:50% 100%](images/jupyter.png)
+![bg right:49% 100%](images/jupyter.png)
 - Collection of Jupyter notebooks
 
 - Separate task folder for each topic
@@ -154,7 +160,7 @@ Install single package (Docker) and avoid installing a few hundred packages.
 
 # Timetable
 
-<div class="columns">
+<div class="columns"  style="font-size:      20px;">
 <div>
 
 - 9.00 Introduction presentation  10
@@ -207,12 +213,21 @@ Install single package (Docker) and avoid installing a few hundred packages.
 ---
 # Experimental data
 
+<div class="columns"  style="font-size: 30px;">
+<div>
+
 Availability of experimental data varies for different reactions and different isotopes.
 
 Typically the experimental data is then interpreted to create evaluation libraries, such as ENDF, JEFF, JENDL, CENDL.
 
-[![bg right:45% 100%](images/exfor_be_n_2n.png)](https://nds.iaea.org/dataexplorer/)
+</div>
+<div>
 
+[![](images/exfor_be_n_2n.png)](https://nds.iaea.org/dataexplorer/)
+
+
+</div>
+<div>
 
 ---
 # Cross section reactions
@@ -294,7 +309,8 @@ mat1.set_density('g/cm3', 2.01)
 
 # Making Geometry
 
-![bg right:30% 100%](images/csg1.png)
+<div class="columns">
+<div style="width: 150%;">
 
 The simplest geometry is a single surface and a cell defined as below (-) that surface.
 
@@ -307,11 +323,23 @@ cell_sphere = openmc.Cell(region=region_inside_sphere)
 
 cell_sphere.fill = steel
 ```
+
+</div>
+<div style="display: flex; justify-content: flex-end">
+
+![csg1](images/csg1.png)
+
+</div>
+<div>
+
 ---
 
 # Making Geometry
 
-![bg right:30% 100%](images/csg1.png)
+
+<div class="columns">
+<div style="width: 150%;">
+
 
 Cells can also be constrained by multiple surfaces. This example is above (+) one surface and (&) below (-) another
 
@@ -325,12 +353,26 @@ cell_between = openmc.Cell(region= between_spheres)
 
 cell_sphere.fill = steel
 ```
+
+</div>
+<div style="display: flex; justify-content: flex-end">
+
+
+![csg2](images/csg2.png)
+
+</div>
+<div>
+
+
 ---
 
 
 # Edge of the model
 
-![bg right:30% 100%](images/csg1.png)
+
+<div class="columns">
+<div style="width: 150%;">
+
 
 The outer most surface of the model should have a ```boundary_type``` set to ```"vacuum"``` to indicate that neutrons should not be tracked beyond this surface.
 ```python
@@ -340,17 +382,130 @@ surf_sphere = openmc.Sphere(r=10.0, boundary_type="vacuum")
 between_spheres = -surf_sphere
 cell_between = openmc.Cell(region= between_spheres) 
 ```
+
+
+</div>
+<div style="display: flex; justify-content: flex-end">
+
+![csg1](images/csg1.png)
+
+</div>
+<div>
+
 ---
 
+
+# Surfaces available
+
+<div class="columns">
+<div>
+
+
+Constructive Solid Geometry (CSG) [implementation in OpenMC](https://docs.openmc.org/en/stable/usersguide/geometry.html#id2) has the following surface types.
+
+- **XPlane**, YPlane, ZPlane, Plane
+- XCylinder, YCylinder, **ZCylinder**
+- **Sphere**
+- XCone, YCone, ZCone,
+- Quadric
+- XTorus, YTorus, ZTorus
+
+</div>
+<div>
+
+
+![paramak](https://user-images.githubusercontent.com/8583900/99136727-94aa5f80-261e-11eb-965d-0ccceb2743fc.png)
+</div>
+<div>
+
+---
+
+<!-- # CAD geometry
+
+For more complex 3D geometry [DAGMC](https://github.com/svalinn/DAGMC) can be used which makes use of a meshed geometry to transport particles.
+
+![bg right:33% 99%](images/dagmc_model.png)
+
+--- -->
+
 # Plotting particles
+
+<div class="columns">
+<div>
+
+
+Neutron and photon sources have distributions for:
+- space
+- energy
+- direction
+
+Visualization of the source term helps check the simulation is correct
+
+
+</div>
+<div>
+
+![tracks](images/particle_tracks.png)
+
+</div>
+<div>
+
+---
+
+# Spatial distribution of MCF and ICF sources
+
+The spatial distribution of MCF plasma covers a larger area compared to ICF' 
+
+<div class="columns">
+<div >
+
+<div style="width: 60%;">
+<img src="https://s3.amazonaws.com/media-p.slid.es/uploads/1162849/images/8046456/Screenshot_from_2020-12-14_18-02-01.png">
+</div>
+
+</div>
+<div>
+
+.
+
+</div>
+<div>
+
+---
+
+# Energy distribution MCF and ICF sources
+
+
+
+<div class="columns">
+<div >
+
+
+The energy distribution of MCF has less neutron scattering compared to ICF. Neutrons are:
+- up scattered through collisions with alpha particles
+- down scattered through collisions with DT nuclides
+
+
+</div>
+<div>
+
+![](images/dd_tt_dt.png)
+
+</div>
+<div>
 
 ---
 
 # Tritium Breeding Ratio
 
+<iframe src="https://prezi.com/embed/rnzt6pjj-xfu/?bgcolor=ffffff&lock_to_path=0&autoplay=1&autohide_ctrls=1&landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI0eWk1QlBaUER3dVArS1hRQTAxNXdDZWNRPT0&landing_sign=ABm-Z3JCWCuKHnLF1Q-0yjuTsqyWAQdv3CEpUjcYcXk" title="W3Schools Free Online Web Tutorials" width="100%" height="100%"></iframe>
+
+
 ---
 
 # Damage tallies
+
+![](images/cascade-of-collisions.jpg)
 
 ---
 
@@ -364,6 +519,14 @@ cell_between = openmc.Cell(region= between_spheres)
 
 # Mesh tallies
 
+![](images/mesh_3d.png)
+
+---
+
+# Mesh tallies
+
+![](images/mesh_2d.png)
+
 ---
 
 # Activation
@@ -371,5 +534,6 @@ cell_between = openmc.Cell(region= between_spheres)
 ---
 
 # Summary task
+
 
 ---
