@@ -211,6 +211,7 @@ Install single package (Docker) and avoid installing a few hundred packages.
 - Cross sections can be measured experimentally with monoenergetic neutrons.
 
 ---
+
 # Experimental data
 
 <div class="columns"  style="font-size: 30px;">
@@ -230,6 +231,7 @@ Typically the experimental data is then interpreted to create evaluation librari
 <div>
 
 ---
+
 # Cross section reactions
 
 Cross section evaluations exist for:
@@ -245,12 +247,12 @@ For example Be9(n,2n)2He would be a neutron interaction with beryllium 9 which r
 
 # Reaction rate
 
-The reaction rate ($RR$) can be found by knowing the number of neutrons per unit volume ($n$), the velocity of neutrons ($v$), the material density ($p$), Avogadro's number ($N_{a}$), the microscopic cross section at the neutron energy ($\sigma_{e}$) and the atomic weight of the material ($M$). This reduces down to the neutron flux ($\phi$), nuclide number density ($N_{d}$) and microscopic cross section\sigma_{e}. This can be reduced one more stage by making use of the Macroscopic cross section ($\Sigma_{e}$).
+- The reaction rate ($RR$) can be found by knowing the number of neutrons per unit volume ($n$), the velocity of neutrons ($v$), the material density ($p$), Avogadro's number ($N_{a}$), the microscopic cross section at the neutron energy ($\sigma_{e}$) and the atomic weight of the material ($M$).
+- This reduces down to the neutron flux ($\phi$), nuclide number density ($N_{d}$) and microscopic cross section\sigma_{e}.
+- This can be reduced one more stage by making use of the Macroscopic cross section ($\Sigma_{e}$).
 
 
 $$ RR = \frac{nv\rho N_{a}\sigma_{e} }{M} = \phi N_{d} \sigma_{e} = \phi \Sigma_{e} $$
-
-<!-- TODO add dopplar broadening -->
 
 ---
 
@@ -265,6 +267,8 @@ This can be provided with different combinations of density units, isotope/eleme
 ![bg right:48% 100%](images/nuc_chart.png)
 
 ---
+
+
 # Making materials - nuclides
 
 Simple material construction from nuclides.
@@ -278,7 +282,10 @@ mat2.add_nuclide('O17', 0.000379)
 mat2.add_nuclide('O18', 0.0020004)
 mat2.set_density('g/cm3', 2.01)
 ```
+
 ---
+
+
 # Making materials - elements
 
 Simpler material construction from elements.
@@ -291,7 +298,9 @@ mat1.add_element('Li', 2)
 mat1.add_element('O', 1)
 mat1.set_density('g/cm3', 2.01)
 ```
+
 ---
+
 
 # Making materials - enrichment
 
@@ -305,6 +314,7 @@ mat1.add_element('Li', 2, enrichment_target='Li6', enrichment=60)
 mat1.add_element('O', 1)
 mat1.set_density('g/cm3', 2.01)
 ```
+
 ---
 
 # Making Geometry
@@ -365,7 +375,6 @@ cell_sphere.fill = steel
 
 
 ---
-
 
 # Edge of the model
 
