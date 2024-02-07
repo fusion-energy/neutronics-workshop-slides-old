@@ -102,7 +102,8 @@ Detailed instructions are on [GitHub](https://github.com/fusion-energy/neutronic
 
 # Containers
 
-![bg right:40% 100%](https://imgs.xkcd.com/comics/python_environment.png)
+<div class="columns"  style="font-size: 30px;">
+<div>
 
 Install single package (Docker) and avoid installing a few hundred packages.
 
@@ -112,11 +113,21 @@ Install single package (Docker) and avoid installing a few hundred packages.
 - Isolation
 - Deployable
 
+</div>
+<div>
+
+![xkcd](https://imgs.xkcd.com/comics/python_environment.png)
+image source xkcd.com
+</div>
+<div>
+
 ---
 
 # Tasks
 
-![bg right:49% 100%](images/jupyter.png)
+<div class="columns"  style="font-size: 30px;">
+<div>
+
 - Collection of Jupyter notebooks
 
 - Separate task folder for each topic
@@ -128,13 +139,20 @@ Install single package (Docker) and avoid installing a few hundred packages.
     - graphs
     - images
     - 3D visualization.
+</div>
+<div>
+
+![](images/jupyter.png)
+
+</div>
+<div>
 
 ---
 
 # OpenMC
 
-<!-- [![bg right:60% 80%](https://api.star-history.com/svg?repos=openmc-dev/openmc&type=Date)](https://star-history.com/#openmc-dev/openmc&Date) -->
-[![bg right:60% 80%](images/stars.png)](https://star-history.com/#openmc-dev/openmc&Date)
+<div class="columns"  style="font-size: 30px;">
+<div>
 
 - Increasing adoption
 - Supportive community
@@ -142,18 +160,35 @@ Install single package (Docker) and avoid installing a few hundred packages.
 - Permissive license
 - Python API
 
+</div>
+<div>
+
+<!-- [![bg right:60% 80%](https://api.star-history.com/svg?repos=openmc-dev/openmc&type=Date)](https://star-history.com/#openmc-dev/openmc&Date) -->
+[![](images/stars.png)](https://star-history.com/#openmc-dev/openmc&Date)
+
+</div>
+<div>
+
 ---
 
-![bg right:45% 100%](images/get_started.png)
 
 # Getting started
+
+<div class="columns"  style="font-size: 30px;">
+<div>
 
 1. Run the docker image
     ```docker run -p 8888:8888 ghcr.io/fusion-energy/neutronics-workshop```
 
 2. Double click on the ```half-day-workshop``` folder circled in red.
 
+</div>
+<div>
 
+![](images/get_started.png)
+
+</div>
+<div>
 
 ---
 
@@ -260,12 +295,22 @@ $$ RR = \frac{nv\rho N_{a}\sigma_{e} }{M} = \phi N_{d} \sigma_{e} = \phi \Sigma_
 
 # Making materials
 
+<div class="columns"  style="font-size: 30px;">
+<div>
+
 Neutronics codes require the isotopes and the number density.
 
 This can be provided with different combinations of density units, isotope/element concentration and weight or atom fractions.
 
-![bg right:48% 100%](images/nuc_chart.png)
+</div>
+<div>
 
+
+![](images/nuc_chart.png)
+
+
+</div>
+<div>
 ---
 
 
@@ -528,13 +573,34 @@ The energy distribution of MCF has less neutron scattering compared to ICF. Neut
 
 # Mesh tallies
 
+<div class="columns">
+<div >
+
+</div>
+<div>
+
 ![](images/mesh_3d.png)
+
+
+</div>
+<div>
 
 ---
 
 # Mesh tallies
 
+
+<div class="columns">
+<div >
+
+</div>
+<div>
+
 ![](images/mesh_2d.png)
+
+
+</div>
+<div>
 
 ---
 
