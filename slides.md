@@ -26,6 +26,8 @@ style: |
     --color-foreground: #333;
     --color-highlight: #f96;
     --color-dimmed: #888;
+    font-family: 'Century Gothic';
+    color: #3466C2
   }
   {
     font-size: 29px
@@ -36,8 +38,6 @@ style: |
   }
   .columns {
     display: grid;
-    /* grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem; */
   }
   h1 {
     justify-content: center;
@@ -45,13 +45,18 @@ style: |
   section {
     justify-content: start;
   }
+  img[alt~="bottom-right"] {
+    position: absolute;
+    top: 90%;
+    right: 1%;
+  }
 </style>
 
 
 # Fusion Neutronics Workshop
 
-
 ![Neutron](images/cover.png)
+![bottom-right](https://avatars.githubusercontent.com/u/87702201?s=96&v=4)
 
 ---
 
@@ -95,7 +100,7 @@ style: |
 
 - 🔗 Navigate to the URL in the terminal
 
-Detailed instructions are on [GitHub](https://github.com/fusion-energy/neutronics-workshop/tree/main#local-installation)
+Detailed instructions are on [<u>GitHub</u>](https://github.com/fusion-energy/neutronics-workshop/tree/main#local-installation)
 
 
 ---
@@ -274,9 +279,11 @@ Cross section evaluations exist for:
 - different nuclides
 - different interactions.
 
-A list of reactions available in OpenMC is [here](https://docs.openmc.org/en/stable/usersguide/tallies.html#id2)
+A list of reactions available in OpenMC is [<u>here</u>](https://docs.openmc.org/en/stable/usersguide/tallies.html#id2)
 
-For example Be9(n,2n)2He would be a neutron interaction with beryllium 9 which results in 2 neutrons and 2 helium nuclei.
+For example:
+- Be9(n,2n)2He would be a neutron interaction with beryllium 9 which results in 2 neutrons and 2 helium nuclei.
+- Li6(n,Xt) would be a neutron interaction with lithium 6 nuclei which results in a tritium and X is a wildcard.
 
 ---
 
@@ -455,7 +462,7 @@ cell_between = openmc.Cell(region= between_spheres)
 <div>
 
 
-Constructive Solid Geometry (CSG) [implementation in OpenMC](https://docs.openmc.org/en/stable/usersguide/geometry.html#id2) has the following surface types.
+Constructive Solid Geometry (CSG) [<u>implementation in OpenMC</u>](https://docs.openmc.org/en/stable/usersguide/geometry.html#id2) has the following surface types.
 
 - **XPlane**, YPlane, ZPlane, Plane
 - XCylinder, YCylinder, **ZCylinder**
@@ -544,7 +551,7 @@ The energy distribution of MCF has less neutron scattering compared to ICF. Neut
 <div>
 
 ![](images/dd_tt_dt.png)
-
+Neutron energy from a 50:50 DT plasma
 </div>
 <div>
 
@@ -567,7 +574,189 @@ The energy distribution of MCF has less neutron scattering compared to ICF. Neut
 
 ---
 
+# Neutron scattering
+
+<div class="columns">
+<div >
+
+![](images/elastic.png)
+- (n,n)
+- Neutron collides with the nucleus
+- Neutron scatters of the nucleus losing energy
+- Energy gained by the nucleus which recoils
+
+image source [](https://glossary.slb.com/en/terms/e/elastic_neutron_scattering)
+</div>
+<div>
+
+![](images/inelastic.png)
+
+- (n,n'g)
+- Neutron capture by the nucleus
+- Instantaneously re-emitted with less energy
+- Nucleus in excited state then relaxes to ground state by emitting gamma rays
+
+</div>
+<div>
+
+
+---
+
+# Neutron scattering angle
+
+
+
+<div class="columns">
+<div >
+
+- At low energies the angular distribution is often isotropic
+- As the neutron energy increases the scattering typically becomes more forward peaked
+- Resonances in the cross section can impact the angular distribution probabilities
+
+</div>
+<div>
+
+![](images/scatter_angle.png)
+Image source tend.web.psi.ch
+
+</div>
+<div>
+
+---
+
+# Path length
+
+<div class="columns">
+<div >
+
+- Path length = 1 / $\Sigma_{T}$
+- A 14MeV neutron will lose energy via scattering interactions
+- As the neutron energy decreases the path length also decreases
+- Path length at thermal energy is more constant
+
+![](images/neutron-scatter.png)
+</div>
+<div>
+
+![](https://s3.amazonaws.com/media-p.slid.es/uploads/1162849/images/9184302/water_path_length.jpg)
+
+</div>
+<div>
+
+
+---
+
+# Energy loss
+
+The average logarithmic energy decrement (or loss) per collision ($\xi$) is related to the atomic mass ($A$) of the nucleus
+
+<div style='text-align: center;'>
+
+$\xi = 1+ \frac{(A-1)^2}{2A} ln \frac{(A-1)}{(A+1)}$
+
+</div>
+
+<table style="width:100%">
+  <tr>
+    <th></th>
+    <th>Hydrogen</th>
+    <th>Deuterium</th>
+    <th>Beryllium</th>
+    <th>Carbon</th>
+    <th>Uranium</th>
+  </tr>
+  <tr>
+    <td>Mass of nucleus</td>
+    <td>1</td>
+    <td>2</td>
+    <td>9</td>
+    <td>12</td>
+    <td>238</td>
+  </tr>
+  <tr>
+    <td>Energy decrement</td>
+    <td>1</td>
+    <td>0.7261</td>
+    <td>0.2078</td>
+    <td>0.1589</td>
+    <td>0.0084</td>
+  </tr>
+</table>
+
+---
+
+
+# Collisions to thermalize
+
+The average number of collisions required to reduce the energy of the neutron from $E_{0}$ to $E$.
+
+<div style='text-align: center;'>
+
+$n = \frac{1}{\xi} (ln E_0 - ln E)$
+
+</div>
+
+If $E_{0}$ is 14MeV and $E$ is 0.025eV
+
+<table style="width:100%">
+  <tr>
+    <th></th>
+    <th>Hydrogen</th>
+    <th>Deuterium</th>
+    <th>Beryllium</th>
+    <th>Carbon</th>
+    <th>Uranium</th>
+  </tr>
+  <tr>
+    <td>Number of collisions to thermalize</td>
+    <td>20</td>
+    <td>25</td>
+    <td>85</td>
+    <td>115</td>
+    <td>2172</td>
+  </tr>
+</table>
+
+---
+
+# Moderating power
+
+We should account for the likelihood of scattering.
+
+The number density of the nucleus (ND) and the microscopic cross section (σ) combine to produce the macroscopic scattering cross section (Σ)
+
+<div style='text-align: center;'>
+
+$\Sigma _s = N_D \sigma_s$
+
+$Moderating \; power = \xi \Sigma _s$
+
+</div>
+
+<table style="width:100%">
+  <tr>
+    <th></th>
+    <th>Hydrogen</th>
+    <th>Deuterium</th>
+    <th>Beryllium</th>
+    <th>Carbon</th>
+    <th>Polyethylene</th>
+  </tr>
+  <tr>
+    <td>Moderating power</td>
+    <td>1.28</td>
+    <td>0.18</td>
+    <td>0.16</td>
+    <td>0.064</td>
+    <td>3.26</td>
+  </tr>
+</table>
+
+---
+
 # Photon spectra
+
+
 
 ---
 
@@ -575,6 +764,10 @@ The energy distribution of MCF has less neutron scattering compared to ICF. Neut
 
 <div class="columns">
 <div >
+
+- A grid of voxels / mesh elements can be overlaid on a geometry and the neutron response can be tallied in each voxel.
+
+- The mesh is typically 3D and defined with a top right and lower left coordinate.
 
 </div>
 <div>
@@ -593,6 +786,9 @@ The energy distribution of MCF has less neutron scattering compared to ICF. Neut
 <div class="columns">
 <div >
 
+- For our example we have a grid of voxels with only 1 voxel in one direction.
+- This allows a pixel image of the tally result to be easily plotted.
+
 </div>
 <div>
 
@@ -602,9 +798,45 @@ The energy distribution of MCF has less neutron scattering compared to ICF. Neut
 </div>
 <div>
 
+
+
+---
+
+# Mesh tallies geometry
+
+
+<div class="columns">
+<div >
+
+- The geometry makes use of a two spheres and a plane surface type.
+- The materials in each region respond very differently to neutrons
+- The task has mesh tallies with different scores and plotting to visualize the result
+
+</div>
+<div>
+
+![geo](https://s3.amazonaws.com/media-p.slid.es/uploads/1162849/images/8098623/Screenshot_from_2021-01-06_15-21-08.png)
+
+
+</div>
+<div>
+
 ---
 
 # Activation
+
+![bg 50%](images/reaction-directions.png)
+
+---
+
+# Activation
+
+![](images/activation-directions-fe56.png)
+
+---
+# Activation
+
+![](images/isotope-charts.png)
 
 ---
 
