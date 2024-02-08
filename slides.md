@@ -844,7 +844,7 @@ $Moderating \; power = \xi \Sigma _s$
 # Activation
 
 
-<div class="columns3">
+<div class="columns">
 <div>
 
 - High energy neutron activation
@@ -859,13 +859,15 @@ $Moderating \; power = \xi \Sigma _s$
 </div>
 <div>
 
-- Activation products from fission
-![](images/isotope_chart_fission_activation.png)
-
-</div>
-<div>
+---
 
 
+# Activation products from fission
+
+- Fission of large atoms (e.g. U235)
+- Results in two fission products far from stability
+
+![bg 60%](images/isotope_chart_fission_activation.png)
 
 ---
 
