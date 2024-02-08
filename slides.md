@@ -15,6 +15,11 @@ style: |
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
   },
+  .columns3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  },
   h1 {
     text-align: center
   }
@@ -552,6 +557,7 @@ The energy distribution of MCF has less neutron scattering compared to ICF. Neut
 
 ![](images/dd_tt_dt.png)
 Neutron energy from a 50:50 DT plasma
+
 </div>
 <div>
 
@@ -586,6 +592,7 @@ Neutron energy from a 50:50 DT plasma
 - Energy gained by the nucleus which recoils
 
 image source [](https://glossary.slb.com/en/terms/e/elastic_neutron_scattering)
+
 </div>
 <div>
 
@@ -836,7 +843,35 @@ $Moderating \; power = \xi \Sigma _s$
 ---
 # Activation
 
-![](images/isotope-charts.png)
+
+<div class="columns3">
+<div>
+
+- High energy neutron activation
+![](images/isotope_chart_high_activation.png)
+
+</div>
+<div>
+
+- Low energy neutron activation
+![](images/isotope_chart_low_activation.png)
+
+</div>
+<div>
+
+- Activation products from fission
+![](images/isotope_chart_fission_activation.png)
+
+</div>
+<div>
+
+
+
+---
+
+# Build up and saturation
+
+![](images/activation-cooldown.png)
 
 ---
 
