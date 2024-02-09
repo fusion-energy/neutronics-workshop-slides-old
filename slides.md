@@ -61,7 +61,7 @@ style: |
 # Fusion Neutronics Workshop
 
 ![Neutron](images/cover.png)
-![bottom-right](https://avatars.githubusercontent.com/u/87702201?s=96&v=4)
+<!-- ![bottom-right](logo) -->
 
 ---
 
@@ -161,20 +161,23 @@ image source xkcd.com
 
 # OpenMC
 
-<div class="columns"  style="font-size: 30px;">
+<div class="columns">
 <div>
 
-- Increasing adoption
-- Supportive community
-- GitHub repository
-- Permissive license
-- Python API
-
+- Increasing adoption in fusion
+- [Supportive community](https://openmc.discourse.group/)
+- [GitHub repository](https://github.com/openmc-dev/openmc/)
+- Permissive license (MIT)
+- Python API, C++ backend
+- [Scales to 100,000+ cores](https://doi.org/10.1016/j.anucene.2014.07.048)
+- CPU and GPU version
+- [Online documentation](https://docs.openmc.org/en/stable/)
+- [Excellent fusion specific workshops](https://github.com/fusion-energy/neutronics-workshop)
 </div>
 <div>
 
 <!-- [![bg right:60% 80%](https://api.star-history.com/svg?repos=openmc-dev/openmc&type=Date)](https://star-history.com/#openmc-dev/openmc&Date) -->
-[![](images/stars.png)](https://star-history.com/#openmc-dev/openmc&Date)
+[![width:900px](images/stars.png)](https://star-history.com/#openmc-dev/openmc&Date)
 
 </div>
 <div>
@@ -205,21 +208,21 @@ image source xkcd.com
 
 # Timetable
 
-<div class="columns"  style="font-size:      20px;">
+<div class="columns"  style="font-size: 20px;">
 <div>
 
-- 9.00 Introduction presentation  10
-- 9.10 Plotting cross sections    30
+- 9.00 Introduction presentation
+- 9.10 Plotting cross sections
     - task_01_isotope_xs_plot
     - task_02_element_xs_plot
     - task_03_material_xs_plot
-- 9.40 Making materials            15
+- 9.40 Making materials
     - task_04_example_materials_from_isotopes
     - task_05_example_materials_from_elements
-- 9.55 Geometry                   20
+- 9.55 Geometry
     - task_06_simple_csg_geometry
-- 10.15 Break                      15
-- 10.30 Plotting particles        35
+- 10.15 Break
+- 10.30 Plotting particles
   - task_07_point_source_plots
   - task_08_ring_source
   - task_09_plasma_source_plots
@@ -227,26 +230,26 @@ image source xkcd.com
 </div>
 <div>
 
-- 11.05 Tritium Breeding Ratio (TBR)    10
+- 11.05 Tritium Breeding Ratio (TBR)
   - task_10_example_tritium_production
-- 11.15 Damage (DPA)                    15
+- 11.15 Damage (DPA)
   - task_11_find_dpa
-- 11:30 Break                           15
-- 11:45 neutron photon spectra          30
+- 11:30 Break
+- 11:45 neutron photon spectra
   - task_12_example_neutron_spectra_on_cell  
   - task_13_example_photon_spectra
-- 12.15 mesh tallies                    15
+- 12.15 mesh tallies
   - task_14_example_2d_regular_mesh_tallies
-- 12.30 activation                      15
+- 12.30 activation
   - task_15_full_pulse_schedule
-- 12.45 Putting it all together         15
+- 12.45 Putting it all together
   - task_16_optimal_design
 
 </div>
 </div>
 
 ---
-# Task 1, 2, 3
+
 # Microscopic Cross Sections
 
 - Probability of interaction is characterised by the microscopic cross-section (σ). It is the effective size of the nucleus.
@@ -266,11 +269,14 @@ Availability of experimental data varies for different reactions and different i
 
 Typically the experimental data is then interpreted to create evaluation libraries, such as ENDF, JEFF, JENDL, CENDL.
 
+
+
 </div>
 <div>
 
 [![](images/exfor_be_n_2n.png)](https://nds.iaea.org/dataexplorer/)
 
+Source [IAEA nuclear data services](https://nds.iaea.org/dataexplorer/?target_elem=Au&target_mass=197&reaction=n%2Cg)
 
 </div>
 <div>
@@ -303,7 +309,9 @@ $$ RR = \frac{nv\rho N_{a}\sigma_{e} }{M} = \phi N_{d} \sigma_{e} = \phi \Sigma_
 
 ---
 
-# Task 4, 5
+# Now complete tasks 1, 2 and 3 in the half day workshop
+
+---
 
 # Making materials
 
@@ -323,6 +331,7 @@ This can be provided with different combinations of density units, isotope/eleme
 
 </div>
 <div>
+
 ---
 
 
@@ -351,7 +360,7 @@ Simpler material construction from elements.
 import openmc
 
 mat1 = openmc.Material()
-mat1.add_element('Li', 2)
+mat1.add_element('H', 2)
 mat1.add_element('O', 1)
 mat1.set_density('g/cm3', 2.01)
 ```
@@ -367,10 +376,15 @@ Simple enriched material construction from elements.
 import openmc
 
 mat1 = openmc.Material()
-mat1.add_element('Li', 2, enrichment_target='Li6', enrichment=60)
-mat1.add_element('O', 1)
+mat1.add_element('Li', 4, enrichment_target='Li6', enrichment=60)
+mat1.add_element('Si', 1)
+mat1.add_element('O', 4)
 mat1.set_density('g/cm3', 2.01)
 ```
+
+---
+
+# Now complete tasks 4 and 5 in the half day workshop
 
 ---
 
@@ -480,19 +494,33 @@ Constructive Solid Geometry (CSG) [<u>implementation in OpenMC</u>](https://docs
 <div>
 
 
-![paramak](https://user-images.githubusercontent.com/8583900/99136727-94aa5f80-261e-11eb-965d-0ccceb2743fc.png)
+![width:450px](images/paramak.png)
+Image source [<u>Paramak</u>](https://paramak.readthedocs.io/en/main/)
 </div>
 <div>
 
 ---
 
-<!-- # CAD geometry
+# More complex geometry
 
-For more complex 3D geometry [DAGMC](https://github.com/svalinn/DAGMC) can be used which makes use of a meshed geometry to transport particles.
+OpenMC also supports:
+
+- boolean operations like union, intersection and complement.
+- rotations and translations
+- nested geometry with universes
+- different surface types (e.g reflective for sector model)
+
+For more complex 3D geometry [<u>DAGMC</u>](https://github.com/svalinn/DAGMC) can be used which makes use of a meshed geometry to transport particles.
+
+
 
 ![bg right:33% 99%](images/dagmc_model.png)
 
---- -->
+---
+
+# Now complete task 6 in the half day workshop
+
+---
 
 # Plotting particles
 
@@ -550,16 +578,20 @@ The spatial distribution of MCF plasma covers a larger area compared to ICF'
 The energy distribution of MCF has less neutron scattering compared to ICF. Neutrons are:
 - up scattered through collisions with alpha particles
 - down scattered through collisions with DT nuclides
-
+- plot shows initial neutron energy from a 50:50 DT plasma
 
 </div>
 <div>
 
 ![](images/dd_tt_dt.png)
-Neutron energy from a 50:50 DT plasma
+
 
 </div>
 <div>
+
+---
+
+# Now complete tasks 7, 8 and 9 in the half day workshop
 
 ---
 
@@ -570,38 +602,44 @@ Neutron energy from a 50:50 DT plasma
 
 ---
 
+# Now complete task 10 in the half day workshop
+
+---
+
 # Damage tallies
 
 ![](images/cascade-of-collisions.jpg)
 
 ---
 
-# Neutron spectra
+# Now complete task 11 in the half day workshop
 
 ---
+
 
 # Neutron scattering
 
 <div class="columns">
 <div >
 
-![](images/elastic.png)
+![width:200px](images/elastic.png)
 - (n,n)
 - Neutron collides with the nucleus
 - Neutron scatters of the nucleus losing energy
 - Energy gained by the nucleus which recoils
 
-image source [](https://glossary.slb.com/en/terms/e/elastic_neutron_scattering)
+[<u>image source slb.com</u>](https://glossary.slb.com/en/terms/e/elastic_neutron_scattering)
 
 </div>
 <div>
 
-![](images/inelastic.png)
+![width:200px](images/inelastic.png)
 
 - (n,n'g)
 - Neutron capture by the nucleus
 - Instantaneously re-emitted with less energy
-- Nucleus in excited state then relaxes to ground state by emitting gamma rays
+- Nucleus in excited state
+- Relaxes to ground state by emitting gamma rays
 
 </div>
 <div>
@@ -761,9 +799,7 @@ $Moderating \; power = \xi \Sigma _s$
 
 ---
 
-# Photon spectra
-
-
+# Now complete tasks 12 and 13 in the half day workshop
 
 ---
 
@@ -779,7 +815,7 @@ $Moderating \; power = \xi \Sigma _s$
 </div>
 <div>
 
-![](images/mesh_3d.png)
+![width:600px](images/mesh_3d.png)
 
 
 </div>
@@ -799,7 +835,7 @@ $Moderating \; power = \xi \Sigma _s$
 </div>
 <div>
 
-![](images/mesh_2d.png)
+![width:400px](images/mesh_2d.png)
 
 
 </div>
@@ -822,26 +858,29 @@ $Moderating \; power = \xi \Sigma _s$
 </div>
 <div>
 
-![geo](https://s3.amazonaws.com/media-p.slid.es/uploads/1162849/images/8098623/Screenshot_from_2021-01-06_15-21-08.png)
+![width:500px](images/mesh_tally_geometry.png)
 
 
 </div>
 <div>
 
 ---
+# Now complete task 14 in the half day workshop
 
-# Activation
+---
+
+# Activation reactions
 
 ![bg 50%](images/reaction-directions.png)
 
 ---
 
-# Activation
+# Activation pathways
 
-![](images/activation-directions-fe56.png)
+![width:800px](images/activation-directions-fe56.png)
 
 ---
-# Activation
+# Activation products
 
 
 <div class="columns">
@@ -908,7 +947,21 @@ $Moderating \; power = \xi \Sigma _s$
 
 ---
 
-# Summary task
-
+# Now complete task 15 in the half day workshop
 
 ---
+
+# Summary task
+
+Replace the "```your code here```" sections to make the best reactor.
+
+Chose the best options from a selection of materials.
+
+Refine the design to:
+- maximize Tritium Breeding Ratio (TBR)
+- maximize blanket heating
+- minimize damage to the conductor
+
+---
+
+# Now complete task 16 in the half day workshop
