@@ -221,7 +221,7 @@ image source xkcd.com
     - task_05_example_materials_from_elements
 - 9.55 Geometry
     - task_06_simple_csg_geometry
-- 10.15 Break
+- 10.15 Break ☕
 - 10.30 Plotting particles
   - task_07_point_source_plots
   - task_08_ring_source
@@ -234,7 +234,7 @@ image source xkcd.com
   - task_10_example_tritium_production
 - 11.15 Damage (DPA)
   - task_11_find_dpa
-- 11:30 Break
+- 11:30 Break ☕
 - 11:45 neutron photon spectra
   - task_12_example_neutron_spectra_on_cell  
   - task_13_example_photon_spectra
