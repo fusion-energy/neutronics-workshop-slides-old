@@ -145,10 +145,10 @@ image source xkcd.com
 - Learning outcomes for each task
 
 - Simulation outputs include:
-    - numbers
-    - graphs
-    - images
-    - 3D visualization.
+  - numbers
+  - graphs
+  - images
+  - 3D visualization.
 </div>
 <div>
 
@@ -873,7 +873,38 @@ $Moderating \; power = \xi \Sigma _s$
 
 # Build up and saturation
 
-![](images/activation-cooldown.png)
+<div class="columns">
+<div>
+
+<span style="color:green;">
+
+- New isotopes created during irradiation
+
+</span>
+
+<span style="color:orange;">
+
+- Radioactive isotopes decay and will eventually reach a point where decay rate is equal to activation rate.
+
+</span>
+
+<span style="color:red;">
+
+- Decay is more noticeable once the plasma is shutdown.
+
+</span>
+
+- The activity is related to the irradiation time and the nuclide half life.
+
+</div>
+<div>
+
+
+![height:550px](images/activation-cooldown.png)
+
+</div>
+<div>
+
 
 ---
 
